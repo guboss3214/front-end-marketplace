@@ -14,7 +14,7 @@ const DefaultIcon = L.icon({
 });
 
 const Contact = () => {
-  const position = [50.450001, 30.523333];
+  const position: [number, number] = [50.450001, 30.523333];
 
   if (typeof window !== 'undefined') {
     L.Marker.prototype.options.icon = DefaultIcon;
@@ -70,7 +70,7 @@ const Contact = () => {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <Marker position={position}>
-              <Popup className="text-center">
+              <Popup>
                 <strong>Our Office</strong> <br />
                 😊 Feel free to visit us! <br />
                 <small>123 E-commerce St</small>
