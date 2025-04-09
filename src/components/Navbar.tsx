@@ -6,13 +6,14 @@ import {
   ShoppingCart,
   Store,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from './Modal';
 import FoundProductsModal from './FoundProductsModal';
 import CartModal from './CartModal';
 import { useCart } from '../context/CartContext';
 import axiosInstance from '../lib/axios';
+import { useAuth } from '../hooks/AuthContext';
 
 interface Product {
   id: string;
@@ -26,7 +27,7 @@ interface Product {
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalOpen2, setIsModalOpen2] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+  const { isLoggedIn } = useAuth();
   const { cart } = useCart();
   const [cartModal, setCartModal] = useState(false);
   const [foundProducts, setFoundProducts] = useState([]);
@@ -59,11 +60,6 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
-  }, []);
-
   const navigate = useNavigate();
 
   const toggleModal = () => setIsModalOpen((prev) => !prev);
@@ -71,7 +67,6 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    setIsLoggedIn(false);
     setIsModalOpen(false);
     navigate('/');
     window.location.reload();
