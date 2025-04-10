@@ -78,20 +78,24 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="max-w-xl mx-auto p-8 bg-white shadow-lg rounded-2xl">
-        <h2 className="text-2xl font-bold mb-6 text-center">Add New Product</h2>
-        <form className="space-y-6" onSubmit={handleSubmit}>
+    <div className="p-2 sm:p-4">
+      <div className="max-w-xl mx-auto p-4 sm:p-6 md:p-8 bg-white shadow-lg rounded-xl md:rounded-2xl">
+        <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">
+          Add New Product
+        </h2>
+        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Product Image
             </label>
-            <div className="flex justify-center items-center mt-4">
+            <div className="flex justify-center items-center mt-2 md:mt-4">
               <img
                 src={image ? URL.createObjectURL(image) : ''}
                 alt="Product"
                 className={
-                  image ? 'w-80 h-80 object-cover rounded-lg' : 'hidden'
+                  image
+                    ? 'w-48 h-48 md:w-80 md:h-80 object-cover rounded-lg'
+                    : 'hidden'
                 }
               />
             </div>
@@ -99,7 +103,7 @@ const AddProduct = () => {
               type="file"
               accept="image/*"
               onChange={handleImageChange}
-              className="mt-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-2 w-full border rounded-lg p-1.5 md:p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -113,7 +117,7 @@ const AddProduct = () => {
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="mt-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-2 w-full border rounded-lg p-1.5 md:p-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -127,7 +131,7 @@ const AddProduct = () => {
               required
               value={price}
               onChange={(e) => setPrice(e.target.value)}
-              className="mt-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-2 w-full border rounded-lg p-1.5 md:p-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
 
@@ -137,10 +141,10 @@ const AddProduct = () => {
             </label>
             <textarea
               placeholder="Enter product description"
-              rows={4}
+              rows={3}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="mt-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-2 w-full border rounded-lg p-1.5 md:p-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
             ></textarea>
           </div>
 
@@ -151,7 +155,7 @@ const AddProduct = () => {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="mt-2 w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-2 w-full border rounded-lg p-1.5 md:p-2 text-sm md:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               {categories.categories.map((category) => (
                 <option key={category.id} value={category.name}>
@@ -163,7 +167,7 @@ const AddProduct = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold transition duration-300"
+            className="w-full bg-blue-500 hover:bg-blue-600 text-white py-1.5 md:py-2 px-4 rounded-lg text-sm md:text-base font-semibold transition-all duration-200"
           >
             Add Product
           </button>

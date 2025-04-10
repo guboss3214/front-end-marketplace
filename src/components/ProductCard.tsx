@@ -36,7 +36,7 @@ const ProductCard: React.FC<CardProps> = ({
   };
 
   return (
-    <div className="relative flex flex-col bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow h-full">
+    <div className="relative flex flex-col bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow max-h-96">
       {location.pathname === '/user-products' && (
         <div className="absolute top-3 right-3 z-10">
           <Link to={`/product/${id}/edit`}>

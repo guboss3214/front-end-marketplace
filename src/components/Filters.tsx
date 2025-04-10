@@ -30,7 +30,7 @@ const Filters: React.FC<FiltersProps> = ({
   }, [maxPrice]);
 
   return (
-    <div className="w-1/6 shadow-xl border p-4 border-gray-200 rounded-lg">
+    <div className="shadow-xl border p-4 border-gray-200 rounded-lg lg:w-72 xl:w-80 sm:p-4 lg:pr-2">
       <h2 className="text-lg font-semibold mb-4">Filters</h2>
 
       <div className="mb-4">

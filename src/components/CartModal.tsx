@@ -20,7 +20,7 @@ const CartModal: React.FC<CartProps> = ({ isOpen, onClose }) => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div className="fixed z-10 inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg w-96">
         <h2 className="text-xl font-bold mb-4">Your Cart: {totalItems}</h2>
 

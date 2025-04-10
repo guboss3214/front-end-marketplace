@@ -118,39 +118,51 @@ const Navbar = () => {
       )}
 
       {isLoggedIn && (
-        <div className="flex items-center gap-6">
-          <div className="relative">
-            <ShoppingCart
-              className="text-blue-600 hover:text-blue-700 hover:cursor-pointer"
-              onClick={toggleCartModal}
-              size={24}
-            />
-            <span className="absolute bottom-4 left-5 px-1.5 py-0.5 text-xs font-bold text-white bg-red-500 rounded-full">
-              {cart.length}
-            </span>
-            {cartModal && (
-              <CartModal isOpen={cartModal} onClose={toggleCartModal} />
-            )}
-          </div>
-          <Link
-            to="/category"
-            className="flex items-center gap-2 px-4 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700"
-          >
-            <ChartColumnStacked /> Categories
-          </Link>
-          <Link
-            to="/add-product"
-            className="flex items-center gap-2 px-4 py-2 text-white bg-blue-600 rounded-full hover:bg-blue-700"
-          >
-            <PlusCircle size={20} /> Add Product
-          </Link>
+        <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-4 sm:gap-6">
+          <div className="flex flex-wrap justify-center items-center gap-4 w-full sm:w-auto">
+            <Link
+              to="/category"
+              className="flex items-center gap-2 px-4 py-2 text-sm sm:text-base text-white bg-blue-600 rounded-full hover:bg-blue-700 transition"
+            >
+              <ChartColumnStacked size={18} className="sm:size-5" />
+              Categories
+            </Link>
 
-          <User
-            onClick={toggleModal}
-            className="text-gray-600 hover:text-blue-600 hover:cursor-pointer"
-            size={28}
-          />
-          {isModalOpen && <Modal onClose={toggleModal} logout={handleLogout} />}
+            <Link
+              to="/add-product"
+              className="flex items-center gap-2 px-4 py-2 text-sm sm:text-base text-white bg-blue-600 rounded-full hover:bg-blue-700 transition"
+            >
+              <PlusCircle size={18} className="sm:size-5" />
+              Add Product
+            </Link>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 w-full sm:w-auto">
+            <div className="relative">
+              <ShoppingCart
+                className="text-blue-600 hover:text-blue-700 cursor-pointer"
+                onClick={toggleCartModal}
+                size={24}
+              />
+              <span className="absolute bottom-4 left-5 px-1.5 py-0.5 text-xs font-bold text-white bg-red-500 rounded-full">
+                {cart.length}
+              </span>
+              {cartModal && (
+                <CartModal isOpen={cartModal} onClose={toggleCartModal} />
+              )}
+            </div>
+
+            <div>
+              <User
+                onClick={toggleModal}
+                className="text-gray-600 hover:text-blue-600 cursor-pointer"
+                size={28}
+              />
+              {isModalOpen && (
+                <Modal onClose={toggleModal} logout={handleLogout} />
+              )}
+            </div>
+          </div>
         </div>
       )}
     </nav>

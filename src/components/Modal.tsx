@@ -7,12 +7,15 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ onClose, logout }) => {
   return (
-    <div className="absolute right-2 top-20 z-10">
+    <div
+      className="fixed inset-0 z-50 bg-black bg-opacity-20 flex justify-center items-center pt-20 sm:pt-0"
+      onClick={onClose}
+    >
       <div
-        className="bg-white p-6 rounded-lg shadow-lg max-w-sm"
+        className="bg-white p-4 sm:p-6 w-[90vw] max-w-xs sm:max-w-sm rounded-lg shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <ul className="space-y-4">
+        <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base">
           <li>
             <Link
               to="/profile"
@@ -37,13 +40,14 @@ const Modal: React.FC<ModalProps> = ({ onClose, logout }) => {
             </Link>
           </li>
         </ul>
-        <div className="flex items-center justify-center gap-4">
+
+        <div className="flex items-center justify-center mt-4">
           <button
             onClick={() => {
               logout();
               onClose();
             }}
-            className="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition w-full sm:w-auto"
           >
             Logout
           </button>

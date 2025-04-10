@@ -64,22 +64,26 @@ const MarketPlace = () => {
 
   if (isLoading) {
     return (
-      <div className="w-full h-screen flex items-center justify-center">
+      <div className="w-full min-h-screen flex items-center justify-center">
         <div className="text-xl">Loading...</div>
       </div>
     );
   }
 
   return (
-    <main className="w-full flex">
+    <main className="w-full flex flex-col lg:flex-row">
       <Filters
         onFilterChange={handleFilterChange}
         categoryOptions="All Categories"
       />
-      <div className="w-full">
-        <h1 className="text-2xl text-gray-600 font-bold p-4">Marketplace</h1>
+
+      <div className="w-full lg:flex-1">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl text-gray-600 font-bold p-2 sm:p-4">
+          Marketplace
+        </h1>
+
         {filteredProducts.length > 0 ? (
-          <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+          <div className="p-2 sm:p-4 lg:p-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product._id}
@@ -94,7 +98,9 @@ const MarketPlace = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center text-2xl mt-10">No products found</div>
+          <div className="text-center text-lg sm:text-xl lg:text-2xl mt-8 sm:mt-12 lg:mt-16">
+            No products found
+          </div>
         )}
       </div>
     </main>

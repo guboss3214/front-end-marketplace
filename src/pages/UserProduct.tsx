@@ -88,7 +88,7 @@ const UserProduct = () => {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
+    <div className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center min-h-screen">
       {products.length > 0 ? (
         products.map((product) => (
           <ProductCard

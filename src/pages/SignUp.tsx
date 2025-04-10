@@ -62,7 +62,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="relative flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="relative flex justify-center items-center min-h-screen bg-gray-100 p-4">
       <video
         autoPlay
         muted
