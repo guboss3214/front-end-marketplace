@@ -33,10 +33,3 @@ This is the frontend interface for a marketplace, built with modern technologies
    ```bash
    npm run dev
    ```
-## 📄 License
-
-MIT
-
----
-
-This includes the `.env` setup for both the backend URL and Cloudinary. Let me know if you'd like further adjustments!
